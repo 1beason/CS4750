@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $age = $_POST['age'];
     $number = $_POST['number'];
 
-    $query = "INSERT INTO players (name, age, number) VALUES 
+    $query = "INSERT INTO Players (name, age, number) VALUES 
             (:name, :age, :number)";
 
     $statement = $db->prepare($query);
