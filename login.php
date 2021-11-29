@@ -2,21 +2,20 @@
 require("dbutil.php");
 $db = DbUtil::loginConnection();
 session_start();
-$stmt = $db->stmt_init();
-$un = $_GET["username"];
-$pwd = md5($_GET["password"]);
 
 $found = 0;
-if ($stmt->prepare("select * from User where Username = ? and Password = ?")) {
-    mysqli_stmt_bind_param($stmt, "ss", $un, $pwd);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $usr, $pass);
+$query = "select * from Players";
+$q = $db->prepare($query);
+if ($q) {
+    $q->execute();
+    $all = $q->get_result();
+    $iter = $all->fetch_all();
+    var_dump($iter);
 
-    if (mysqli_stmt_fetch($stmt)) {
+    if ($q) {
         $found = 5;
         $_SESSION["login"] = true;
     }
-    $stmt->close();
 }
 echo $found;
 $db->close();

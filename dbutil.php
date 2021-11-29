@@ -1,9 +1,9 @@
 <?php
 class DbUtil{
-	public static $loginUser = "cs4750jmi8fsa";
-	public static $loginPass = "cs4750mtgproject.a";
-	public static $host = "stardock.cs.virginia.edu"; // DB Host
-	public static $schema = "cs4750jmi8fs"; // DB Schema
+	public static $loginUser = "root";
+	public static $loginPass = "b2GgMcH8DMcFcJBE";
+	public static $host = "34.145.175.3"; // DB Host
+	public static $schema = "NFL_Stats"; // DB Schema
 
 	public static function loginConnection(){
 		$db = new mysqli(DbUtil::$host, DbUtil::$loginUser, DbUtil::$loginPass, DbUtil::$schema);
@@ -18,3 +18,5 @@ class DbUtil{
 	}
 
 }
+
+$test = DbUtil::loginConnection();
