@@ -18,5 +18,3 @@ class DbUtil{
 	}
 
 }
-
-$test = DbUtil::loginConnection();
