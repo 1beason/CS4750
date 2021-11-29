@@ -18,24 +18,25 @@
     
 </head>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['btn1'];
-    $age = $_POST['age'];
-    $number = $_POST['number'];
+    $name = $_POST['nameToUpdate'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $newName = $_POST['name'];
+        $age = $_POST['age'];
+        $number = $_POST['number'];
 
-    $query = "UPDATE Players SET name=:name, age=:age, number=:number
+        $query = "UPDATE Players SET name=:newName, age=:age, number=:number
                 WHERE name=:name";
 
-    $statement = $db->prepare($query);
+        $statement = $db->prepare($query);
+        $statement->bindValue(':newName', $newName);
+        $statement->bindValue(':name', $name);
+        $statement->bindValue(':age', $age);
+        $statement->bindValue(':number', $number);
 
-    $statement->bindValue(':name', $name);
-    $statement->bindValue(':age', $age);
-    $statement->bindValue(':number', $number);
+        $statement->execute();
 
-    $statement->execute();
-
-    $statement->closeCursor();
-}
+        $statement->closeCursor();
+    }
 ?>
 <div class="container" style="text-align: center;">
     <!-- a form -->

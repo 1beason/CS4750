@@ -17,23 +17,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 </head>
-<?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST['name'];
-    }
-?>
+
 <div class="container" style="text-align: center;">
     <!-- a form -->
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="addForm" method="post">
+    <form action="updatePlayer2.php" name="addForm" method="post">
 
     <h4>Update a player</h4>
     <div class="form-group">
         <div class="form-row">
             <div class = "col">
                 <label for="first_name">Which player would you like to update?</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter player name" required>
+                <input type="text" class="form-control" id="nameToUpdate" name="nameToUpdate" placeholder="Enter player name" required>
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="btn1" name="btn1" value=".$name.">Submit</button>             
+    <button type="submit" class="btn btn-primary" id="btn">Submit</button>             
 </div>
