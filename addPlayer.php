@@ -30,11 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $statement->bindValue(':name', $name);
     $statement->bindValue(':age', $age);
-    $statement->bindValue(':number', $name);
+    $statement->bindValue(':number', $number);
 
     $statement->execute();
 
-    $statement->execute();
     $statement->closeCursor();
 }
 ?>
