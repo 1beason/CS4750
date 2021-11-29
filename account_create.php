@@ -46,6 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindValue(':pass1', $hashed);
         $stmt->execute();
         $stmt->closeCursor();
+
+        header("Location:login.php");
     }
 }
 ?>
