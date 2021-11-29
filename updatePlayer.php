@@ -17,10 +17,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 </head>
+<?php
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $newName = $_POST['name'];
+        $age = $_POST['age'];
+        $number = $_POST['number'];
+        $name = $_POST['nameToUpdate'];
 
+        $query = "UPDATE Players SET name=:newName, age=:age, number=:number
+                WHERE name=:name";
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':newName', $newName);
+        $statement->bindValue(':name', $name);
+        $statement->bindValue(':age', $age);
+        $statement->bindValue(':number', $number);
+
+        $statement->execute();
+
+        $statement->closeCursor();
+    }
+?>
 <div class="container" style="text-align: center;">
     <!-- a form -->
-    <form action="updatePlayer2.php" name="addForm" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="addForm" method="post">
 
     <h4>Update a player</h4>
     <div class="form-group">
@@ -31,5 +52,25 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="btn">Submit</button>             
+    <div class="form-group">
+        <div class="form-row">
+            <div class = "col">
+                <label for="first_name">New Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter player name" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "col">
+                <label for="first_name">New Age</label>
+                <input type="text" class="form-control" id="age" name="age" placeholder="Enter the age" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class = "col">
+                <label for="first_name">New Number</label>
+                <input type="text" class="form-control" id="number" name="number" placeholder="Enter the number" required>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="submit">Submit</button>             
 </div>
