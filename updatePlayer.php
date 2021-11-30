@@ -1,6 +1,7 @@
 <html>
   <?php 
     require('dbutil.php');
+    include('nav.php');
   ?>
 
   <style>
@@ -18,7 +19,6 @@
     
 </head>
 <?php
-    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $newName = $_POST['name'];
         $age = $_POST['age'];
@@ -43,7 +43,6 @@
     <!-- a form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="addForm" method="post">
 
-    <h4>Update a player</h4>
     <div class="form-group">
         <div class="form-row">
             <div class = "col">
