@@ -23,7 +23,7 @@
         $newName = $_POST['name'];
         $age = $_POST['age'];
         $number = $_POST['number'];
-        $name = $_SESSION['name'];
+        $name = $_POST['nameToUpdate'];
 
         $query = "UPDATE Players SET name=:newName, age=:age, number=:number
                 WHERE name=:name";
@@ -44,7 +44,7 @@
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="addForm" method="post">
 
     <?php echo "Update "; echo $name;?>
-    <!--
+
     <div class="form-group">
         <div class="form-row">
             <div class = "col">
@@ -53,7 +53,6 @@
             </div>
         </div>
     </div>
-    -->
     <div class="form-group">
         <div class="form-row">
             <div class = "col">
