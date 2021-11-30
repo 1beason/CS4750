@@ -50,6 +50,9 @@
                 <?php endforeach; ?>
             </table>
         </div>
+        <form action="updatePlayer.php" name="updateForm" method="post">  
+            <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
+        </form> 
     </body>
 </html>
 
