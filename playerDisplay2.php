@@ -33,30 +33,23 @@
 
 }
 ?>
-
-
-    <style>
-        table, th, td {
-            border:1px solid black;
-            width: 100%;
-        }
-    </style>
     <body>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Age</th> 
-                <th>Number</th>
-            </tr>
-
-            <?php foreach ($player_info as $p): ?>
-            <tr>
-                <td><?php echo $p['name']; ?></td>
-                <td><?php echo $p['age']; ?></td> 
-                <td><?php echo $p['number']; ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered" style="width:100%">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th> 
+                    <th>Number</th>
+                </tr>
+                <?php foreach ($player_info as $p): ?>
+                <tr>
+                    <td><?php echo $p['name']; ?></td>
+                    <td><?php echo $p['age']; ?></td> 
+                    <td><?php echo $p['number']; ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
     </body>
 </html>
 
