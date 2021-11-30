@@ -1,6 +1,7 @@
 <html>
   <?php 
     require('dbutil.php');
+    include('nav.php');
   ?>
 
   <style>
