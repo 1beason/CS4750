@@ -26,14 +26,14 @@
         $stmt->execute();
         $res = $stmt->fetchAll();
         $username = $res[0]['username'];
-        $statement->closeCursor();
+        $stmt->closeCursor();
 
         $query = "SELECT * FROM Players WHERE creator = :user";
         $stmt = $db->prepare($query);
         $stmt->bindParam(":user", $username);
         $stmt->execute();
         $player_info = $stmt->fetchAll();
-        $statement->closeCursor();
+        $stmt->closeCursor();
     }
 
 ?>
