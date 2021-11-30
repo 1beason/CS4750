@@ -38,10 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <th>Age</th> 
             <th>Number</th>
         </tr>
+        <?php foreach ($player_info as $p): ?>
         <tr>
-            <td><?php echo $player_info['name']; ?></td>
-            <td><?php echo $player_info['age']; ?></td> 
-            <td><?php echo $player_info['number']; ?></td>
+            <td><?php echo $p['name']; ?></td>
+            <td><?php echo $p['age']; ?></td> 
+            <td><?php echo $p['number']; ?></td>
         </tr>
+        <?php endforeach; ?>
     </table>
 </body>
