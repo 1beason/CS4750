@@ -28,6 +28,7 @@
         $res = $stmt->fetchAll();
         if(!($res[0]['role'] == 'coach')) {
             echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>Only coaches are authorized to modify players.</b></h4></span></div>";
+            header("Location:home.php");
         }
         else{
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
