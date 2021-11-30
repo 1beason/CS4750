@@ -36,10 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->closeCursor();
 
     if(!$exists) {
-        $query = "INSERT INTO users (username, password) VALUES (:uname, :pass1)";
+        $query = "INSERT INTO users (username, password, role) VALUES (:uname, :pass1, :role)";
 
         $stmt = $db->prepare($query);
         $stmt->bindValue(':uname', $uname);
+        $stmt->bindValue(':role', $role);
 
         //hash pws
         $hashed = password_hash($pass1, PASSWORD_BCRYPT);
@@ -74,6 +75,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputPassword2">Re-enter Password</label>
                         <input type="password" class="form-control" name="pass2" id="pass2" placeholder="Password" >
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <input type="radio" class="form-control" name="role" id="coach">
+                        <label for="coach">Coach</label>
+                        <input type="radio" class="form-control" name="role" id="player">
+                        <label for="player">Player</label>
                     </div>
                     
                     <button type="submit" class="btn btn-secondary">Submit</button>
