@@ -48,8 +48,6 @@
                 $statement->execute();
 
                 $statement->closeCursor();
-            } else {
-                echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>Players cannot modify players.</b></h4></span></div>";
             }
         }
     } else {
