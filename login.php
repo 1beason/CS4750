@@ -1,5 +1,6 @@
 <?php
 require("dbutil.php");
+include('nav.php');
 
 if (isset($_POST['submit'])) {
 
