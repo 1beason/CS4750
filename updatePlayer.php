@@ -28,10 +28,9 @@
         $res = $stmt->fetchAll();
         if(!($res[0]['role'] == 'coach')) {
             echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>Only coaches are authorized to modify players.</b></h4></span></div>";
-            header("Location:home.php");
         }
         else{
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && $res[0]['role'] == 'coach') {
                 $newName = $_POST['name'];
                 $age = $_POST['age'];
                 $number = $_POST['number'];
@@ -49,6 +48,8 @@
                 $statement->execute();
 
                 $statement->closeCursor();
+            } else {
+                echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>Players cannot modify players.</b></h4></span></div>";
             }
         }
     } else {
