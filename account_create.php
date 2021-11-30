@@ -77,6 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" class="form-control" name="pass2" id="pass2" placeholder="Password" >
                     </div>
                     <div class="form-group">
+                        <label for="role">Role</label>
+                        <input type="role" class="form-control" name="role" id="role" placeholder="Role" >
+                    </div>
+                    <!--
+                    <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="role" id="coach">
                             <label class="form-check-label" for="coach">
@@ -89,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 Player
                             </label>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <button type="submit" class="btn btn-secondary">Submit</button>
                     <div>
