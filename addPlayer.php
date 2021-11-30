@@ -24,18 +24,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $age = $_POST['age'];
     $number = $_POST['number'];
 
-    $query = "INSERT INTO Players (name, age, number) VALUES 
-            (:name, :age, :number)";
+    $query = "SELECT * FROM Players WHERE name =:name";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":name", $name);
+    $stmt->execute();
+    $res = $stmt->fetchAll();
+    $found = empty($res) ? 0 : 1;
+    $stmt->closeCursor();
+    if ($found) {
+        echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>That player already exists</b></h4></span></div>";
+        header("Location:home.php");
+    }
+    else{
+        $query = "INSERT INTO Players (name, age, number) VALUES 
+                (:name, :age, :number)";
 
-    $statement = $db->prepare($query);
+        $statement = $db->prepare($query);
 
-    $statement->bindValue(':name', $name);
-    $statement->bindValue(':age', $age);
-    $statement->bindValue(':number', $number);
+        $statement->bindValue(':name', $name);
+        $statement->bindValue(':age', $age);
+        $statement->bindValue(':number', $number);
 
-    $statement->execute();
+        $statement->execute();
 
-    $statement->closeCursor();
+        $statement->closeCursor();
+    }
 }
 ?>
 <div class="container" style="text-align: center;">
