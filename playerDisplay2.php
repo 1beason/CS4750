@@ -31,19 +31,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 ?>
-<body>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Age</th> 
-            <th>Number</th>
-        </tr>
-        <?php foreach ($player_info as $p): ?>
-        <tr>
-            <td><?php echo $p['name']; ?></td>
-            <td><?php echo $p['age']; ?></td> 
-            <td><?php echo $p['number']; ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-</body>
+    <style>
+        table, th, td {
+            border:1px solid black;
+            width: 100%;
+        }
+    </style>
+    <body>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th> 
+                <th>Number</th>
+            </tr>
+            <?php foreach ($player_info as $p): ?>
+            <tr>
+                <td><?php echo $p['name']; ?></td>
+                <td><?php echo $p['age']; ?></td> 
+                <td><?php echo $p['number']; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </body>
+</html>
