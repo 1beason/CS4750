@@ -56,12 +56,14 @@
                 <?php endforeach; ?>
             </table>
         </div>
-        <form action="deletePlayer.php" name="deleteForm" method="post">  
-            <button type="submit" class="btn btn-primary" id="submit">Delete Player</button>
-        </form> 
-        <form action="updatePlayer.php" name="updateForm">  
-            <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
-        </form>
+        <div class="container" style="text-align: center;">
+            <form action="deletePlayer.php" name="deleteForm" method="post">  
+                <button type="submit" class="btn btn-primary" id="submit">Delete Player</button>
+            </form> 
+            <form action="updatePlayer.php" name="updateForm">  
+                <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
+            </form>
+        </div>
     </body>
 </html>
 
