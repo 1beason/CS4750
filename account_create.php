@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $uname = $_POST['uname'];
     $pass1 = $_POST['pass1'];
     $pass2 = $_POST['pass2'];
-
+    $role = $_POST['role'];
 
     $query = "select * from users where username = :uname";
 
