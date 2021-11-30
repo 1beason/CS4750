@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->closeCursor();
     if ($found) {
         echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>That player already exists</b></h4></span></div>";
-        header("Location:home.php");
     }
     else{
         $query = "INSERT INTO Players (name, age, number) VALUES 
