@@ -19,24 +19,39 @@
     
 </head>
 <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $newName = $_POST['name'];
-        $age = $_POST['age'];
-        $number = $_POST['number'];
-        $name = $_POST['nameToUpdate'];
+    if(isset($_SESSION['user'])) {
+        $user = $_SESSION['user'];
+        $query = "SELECT role FROM users WHERE username = :user";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(":user", $user);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        if(!($res[0]['role'] == 'coach')) {
+            echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>Only coaches are authorized to modify players.</b></h4></span></div>";
+        }
+        else{
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $newName = $_POST['name'];
+                $age = $_POST['age'];
+                $number = $_POST['number'];
+                $name = $_POST['nameToUpdate'];
 
-        $query = "UPDATE Players SET name=:newName, age=:age, number=:number
-                WHERE name=:name";
+                $query = "UPDATE Players SET name=:newName, age=:age, number=:number
+                        WHERE name=:name";
 
-        $statement = $db->prepare($query);
-        $statement->bindValue(':newName', $newName);
-        $statement->bindValue(':name', $name);
-        $statement->bindValue(':age', $age);
-        $statement->bindValue(':number', $number);
+                $statement = $db->prepare($query);
+                $statement->bindValue(':newName', $newName);
+                $statement->bindValue(':name', $name);
+                $statement->bindValue(':age', $age);
+                $statement->bindValue(':number', $number);
 
-        $statement->execute();
+                $statement->execute();
 
-        $statement->closeCursor();
+                $statement->closeCursor();
+            }
+        }
+    } else {
+        echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>You are not logged in.</b></h4></span></div>";
     }
 ?>
 <div class="container" style="text-align: center;">
