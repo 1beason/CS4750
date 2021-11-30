@@ -63,6 +63,7 @@
             <form action="updatePlayer.php" name="updateForm">  
                 <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
             </form>
+            <a class="btn btn-primary" href="playerDisplay.php">Back to Browse</a>
         </div>
     </body>
 </html>
