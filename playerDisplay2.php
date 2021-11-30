@@ -30,10 +30,7 @@
         $statement->closeCursor();
         if (!empty($_POST['action']) && ($_POST['action'] == 'Delete Player'))
         {
-            $query = "DELETE FROM Players WHERE name=:name";
-            $statement = $db->prepare($query);
-            $statement->bindValue(':name', $name);
-            $statement->execute();
+            
             header("Location: playerDisplay.php");
         }
 
