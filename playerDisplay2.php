@@ -29,11 +29,6 @@
         $statement->execute();
         $player_info = $statement->fetchAll();
         $statement->closeCursor();
-        if (!empty($_POST['action']) && ($_POST['action'] == 'Delete Player'))
-        {
-            
-            header("Location: playerDisplay.php");
-        }
 
 
 }
@@ -55,8 +50,8 @@
                 <?php endforeach; ?>
             </table>
         </div>
-        <form action="updatePlayer.php" name="updateForm" method="post">  
-            <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
+        <form action="deletePlayer.php" name="deleteForm" method="post">  
+            <button type="submit" class="btn btn-primary" id="submit">Delete Player</button>
         </form> 
         <input type="submit" value="Delete Player" name="action" class="btn btn-primary" />
     </body>
