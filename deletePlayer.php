@@ -34,5 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2 style="margin-top: 5vh; text-align: center;">
         <?php echo $name; echo " deleted"; ?>
     </h2>
-    <a class="btn btn-primary" href="playerDisplay.php">Back to Browse</a>
+    <div class="container" style="text-align: center;">
+      <a class="btn btn-primary" href="playerDisplay.php">Back to Browse</a>
+    </div>
 </body>
