@@ -28,12 +28,14 @@ if (isset($_SESSION['user'])) {
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="home.php">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Players</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Players
+          </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="addPlayer.php">Add Player</a></li>
             <li><a class="dropdown-item" href="update_players_dropdown.php">Update Player</a></li>
-            <li><a class="dropdown-item" href="#">Browse Players</a></li>
+            <li><a class="dropdown-item" href="playerDisplay.php">Browse Players</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">

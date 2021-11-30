@@ -1,6 +1,7 @@
 <html>
     <?php 
         require('dbutil.php');
+        include('nav.php');
     ?>
 
     <style>
@@ -19,12 +20,12 @@
     </head>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        session_start();
         $_SESSION['name'] = $_POST['name'];
         $name = $_SESSION['name'];
-        $query = "SELECT * FROM Players WHERE name=:name";
+        $name_like = '%'.$name.'%';
+        $query = "SELECT * FROM Players WHERE name LIKE :name";
         $statement = $db->prepare($query);
-        $statement->bindValue(':name', $name);
+        $statement->bindValue(':name', $name_like);
         $statement->execute();
         $player_info = $statement->fetchAll();
         $statement->closeCursor();
