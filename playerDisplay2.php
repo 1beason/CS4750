@@ -29,6 +29,14 @@
         $statement->execute();
         $player_info = $statement->fetchAll();
         $statement->closeCursor();
+        if (!empty($_POST['action']) && ($_POST['action'] == 'Delete Player'))
+        {
+            $query = "DELETE FROM Players WHERE name=:name";
+            $statement = $db->prepare($query);
+            $statement->bindValue(':name', $name);
+            $statement->execute();
+            header("Location: playerDisplay.php");
+        }
 
 
 }
@@ -53,6 +61,7 @@
         <form action="updatePlayer.php" name="updateForm" method="post">  
             <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
         </form> 
+        <input type="submit" value="Delete Player" name="action" class="btn btn-primary" />
     </body>
 </html>
 

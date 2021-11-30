@@ -56,19 +56,19 @@
         <div class="form-row">
             <div class = "col">
                 <label for="first_name">New Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter player name" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter new name" required>
             </div>
         </div>
         <div class="form-row">
             <div class = "col">
                 <label for="first_name">New Age</label>
-                <input type="text" class="form-control" id="age" name="age" placeholder="Enter the age" required>
+                <input type="text" class="form-control" id="age" name="age" placeholder="Enter new age" required>
             </div>
         </div>
         <div class="form-row">
             <div class = "col">
                 <label for="first_name">New Number</label>
-                <input type="text" class="form-control" id="number" name="number" placeholder="Enter the number" required>
+                <input type="text" class="form-control" id="number" name="number" placeholder="Enter new number" required>
             </div>
         </div>
     </div>
