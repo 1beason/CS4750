@@ -20,7 +20,6 @@
 </head>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        session_start();
         $name = $_SESSION['name'];
         $query = "DELETE FROM Players WHERE name=:name";
         $statement = $db->prepare($query);
@@ -29,9 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $player_info = $statement->fetchAll();
         $statement->closeCursor();
         echo $name . " deleted";
-        header("Location: playerDisplay.php");
-
-
 }
 ?>
 </html>
