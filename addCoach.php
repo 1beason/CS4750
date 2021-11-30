@@ -1,6 +1,7 @@
 <html>
   <?php 
     require('dbutil.php');
+    include('nav.php');
   ?>
 
   <style>
@@ -9,7 +10,7 @@
 
     <head>
     
-    <title>Add Player</title>
+    <title>Add Coach</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="author" content="Noah Tola">
