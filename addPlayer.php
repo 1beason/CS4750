@@ -19,36 +19,48 @@
     
 </head>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
-    $age = $_POST['age'];
-    $number = $_POST['number'];
+    if(isset($_SESSION['user'])) {
+        $user = $_SESSION['user'];
+        $query = "SELECT * FROM users WHERE username = :user";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(":user", $user);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        $username = $res[0]['username'];
 
-    $query = "SELECT * FROM Players WHERE name =:name";
-    $stmt = $db->prepare($query);
-    $stmt->bindParam(":name", $name);
-    $stmt->execute();
-    $res = $stmt->fetchAll();
-    $found = empty($res) ? 0 : 1;
-    $stmt->closeCursor();
-    if ($found) {
-        echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>That player already exists</b></h4></span></div>";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = $_POST['name'];
+            $age = $_POST['age'];
+            $number = $_POST['number'];
+            $creator = $username;
+
+            $query = "SELECT * FROM Players WHERE name =:name";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(":name", $name);
+            $stmt->execute();
+            $res = $stmt->fetchAll();
+            $found = empty($res) ? 0 : 1;
+            $stmt->closeCursor();
+            if ($found) {
+                echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>That player already exists</b></h4></span></div>";
+            }
+            else{
+                $query = "INSERT INTO Players (name, age, number, creator) VALUES 
+                        (:name, :age, :number, :creator)";
+
+                $statement = $db->prepare($query);
+
+                $statement->bindValue(':name', $name);
+                $statement->bindValue(':age', $age);
+                $statement->bindValue(':number', $number);
+                $statement->bindValue(':creator', $creator);
+
+                $statement->execute();
+
+                $statement->closeCursor();
+            }
+        }
     }
-    else{
-        $query = "INSERT INTO Players (name, age, number) VALUES 
-                (:name, :age, :number)";
-
-        $statement = $db->prepare($query);
-
-        $statement->bindValue(':name', $name);
-        $statement->bindValue(':age', $age);
-        $statement->bindValue(':number', $number);
-
-        $statement->execute();
-
-        $statement->closeCursor();
-    }
-}
 ?>
 <div class="container" style="text-align: center;">
     <!-- a form -->
