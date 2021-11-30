@@ -26,11 +26,11 @@
         $stmt->bindParam(":user", $user);
         $stmt->execute();
         $res = $stmt->fetchAll();
-        if(!($res[0]['role'] == 'coach')) {
-            echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>Only coaches are authorized to modify players.</b></h4></span></div>";
+        if(($res[0]['role'] == 'player')) {
+            echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>Players are not authorized to modify players.</b></h4></span></div>";
         }
         else{
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && $res[0]['role'] == 'coach') {
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && !($res[0]['role'] == 'player')) {
                 $newName = $_POST['name'];
                 $age = $_POST['age'];
                 $number = $_POST['number'];
