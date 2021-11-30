@@ -31,8 +31,5 @@
         </div>
     </div>
     <button type="submit" class="btn btn-primary" id="submit">Search</button>
-    </form> 
-    <form action="updatePlayer.php" name="updateForm" method="post">  
-        <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
     </form>          
 </div>
