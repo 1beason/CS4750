@@ -19,7 +19,7 @@
 </head>
 <div class="container" style="text-align: center;">
     <!-- a form -->
-    <form action="playerDisplay2.php" name="addForm" method="post">
+    <form action="playerDisplay2.php" name="displayForm" method="post">
 
     <h4>Find a player</h4>
     <div class="form-group">
@@ -30,5 +30,9 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="submit">Search</button>             
+    <button type="submit" class="btn btn-primary" id="submit">Search</button>
+    </form> 
+    <form action="updatePlayer.php" name="updateForm" method="post">  
+        <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
+    </form>          
 </div>
