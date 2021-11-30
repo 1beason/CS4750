@@ -27,12 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $statement->execute();
         $player_info = $statement->fetchAll();
         $statement->closeCursor();
-        echo $name . " deleted";
 }
 ?>
 </html>
 <body>
-    <h2>
+    <h2 style="margin-top: 5vh; text-align: center;">
         <?php echo $name; echo " deleted"; ?>
     </h2>
+    <a class="btn btn-primary" href="playerDisplay.php">Back to Browse</a>
 </body>
