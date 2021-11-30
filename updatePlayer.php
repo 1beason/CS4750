@@ -19,7 +19,6 @@
 </head>
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        session_start();
         $newName = $_POST['name'];
         $age = $_POST['age'];
         $number = $_POST['number'];
@@ -42,8 +41,6 @@
 <div class="container" style="text-align: center;">
     <!-- a form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="addForm" method="post">
-
-    <?php echo "Update "; echo $name;?>
 
     <div class="form-group">
         <div class="form-row">
