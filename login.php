@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
         echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_pass'><h4><b>You entered the wrong password, please try again.</b></h4></span></div>";
     } else {
         $_SESSION['user'] = $user;
-        header("Location:addPlayer.php");
+        header("Location:home.php");
     }
     $stmt->closeCursor();
 
