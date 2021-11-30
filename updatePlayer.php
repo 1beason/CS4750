@@ -18,12 +18,12 @@
     
 </head>
 <?php
-    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        session_start();
         $newName = $_POST['name'];
         $age = $_POST['age'];
         $number = $_POST['number'];
-        $name = $_POST['nameToUpdate'];
+        $name = $_SESSION['name'];
 
         $query = "UPDATE Players SET name=:newName, age=:age, number=:number
                 WHERE name=:name";
@@ -43,7 +43,8 @@
     <!-- a form -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="addForm" method="post">
 
-    <h4>Update a player</h4>
+    <?php echo "Update "; echo $name;?>
+    <!--
     <div class="form-group">
         <div class="form-row">
             <div class = "col">
@@ -52,6 +53,7 @@
             </div>
         </div>
     </div>
+    -->
     <div class="form-group">
         <div class="form-row">
             <div class = "col">

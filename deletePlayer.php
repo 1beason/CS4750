@@ -34,3 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 </html>
+<body>
+    <h2>
+        <?php echo $name; echo " deleted"; ?>
+    </h2>
+</body>

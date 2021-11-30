@@ -53,7 +53,9 @@
         <form action="deletePlayer.php" name="deleteForm" method="post">  
             <button type="submit" class="btn btn-primary" id="submit">Delete Player</button>
         </form> 
-        <input type="submit" value="Delete Player" name="action" class="btn btn-primary" />
+        <form action="updatePlayer.php" name="updateForm">  
+            <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
+        </form>
     </body>
 </html>
 
