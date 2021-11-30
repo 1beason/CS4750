@@ -36,5 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </h2>
     <div class="container" style="text-align: center;">
       <a class="btn btn-primary" href="playerDisplay.php">Back to Browse</a>
+      <a class="btn btn-primary" href="home.php">Home</a>
     </div>
 </body>
