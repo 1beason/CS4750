@@ -49,17 +49,15 @@
             <div class = "col">
                 <label for="first_name">Which player would you like to update?</label>
 
-                    
-
-                    <input list="browsers" name="myBrowser" /></label>
-<datalist id="browsers">
-                <?php
+                  <select name="nameToUpdate" id="nameToUpdate">
+                    <?php
                     $sql="SELECT name FROM Players order by name"; 
                     foreach ($db->query($sql) as $row){
                      echo "<option value=$row[id]>$row[name]</option>"; 
                     }
-                ?>
-</datalist>
+                    $selectOption = $_POST['name_to_update'];
+                    ?>
+                    </select>
 
             </div>
         </div>
