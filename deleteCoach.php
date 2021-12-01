@@ -20,6 +20,7 @@
 </head>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
            $name = $_SESSION['name'];
         // $query = "SELECT * FROM Coaches WHERE name =:name";
         // $stmt = $db->prepare($query);
