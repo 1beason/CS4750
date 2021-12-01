@@ -20,23 +20,24 @@
 </head>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_SESSION['name'];
-        $query = "SELECT * FROM Coaches WHERE name =:name";
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(":name", $name);
-        $stmt->execute();
-        $res = $stmt->fetchAll();
-        if($res){
+           $name = $_SESSION['name'];
+        // $query = "SELECT * FROM Coaches WHERE name =:name";
+        // $stmt = $db->prepare($query);
+        // $stmt->bindParam(":name", $name);
+        // $stmt->execute();
+        // $res = $stmt->fetchAll();
+        // $stmt->closeCursor();
+        // if($res){
             $query = "DELETE FROM Coaches WHERE name=:name";
             $statement = $db->prepare($query);
             $statement->bindValue(':name', $name);
             $statement->execute();
             $player_info = $statement->fetchAll();
             $statement->closeCursor();
-        }
-        else{
-            echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>That coach doesn't exists</b></h4></span></div>";
-        }
+        // }
+        // else{
+        //     echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>That coach doesn't exists</b></h4></span></div>";
+        // }
 }
 ?>
 </html>
