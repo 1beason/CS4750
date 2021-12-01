@@ -28,17 +28,15 @@
         $statement->bindValue(':name', $name_like);
         $statement->execute();
         $player_info = $statement->fetchAll();
+        $query2 = "SELECT * FROM PLAYERS WHERE name = :name";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':name', $name);
+        $statement->execute();
+        $player = $statement->fetchAll();
+        $enabled = empty($player) ? 'Disabled' : '';
         $statement->closeCursor();
-
-
 }
 ?>
-<script>
-  $(document).ready(function () {
-  $('#playerTable').DataTable();
-  $('.dataTables_length').addClass('bs-select');
-});
-</script>
     <body>
         <div class="table-responsive">
             <table id="playerTable" class="table table-striped table-bordered" style="width:100%">
@@ -57,11 +55,11 @@
             </table>
         </div>
         <div class="container" style="text-align: center;">
-            <form action="deletePlayer.php" name="deleteForm" method="post">  
-                <button type="submit" class="btn btn-primary" id="submit">Delete Player</button>
+            <form action="deletePlayer.php" name="deleteForm" method="post" id="submitDelete">  
+                <button type="submit" class="btn btn-primary" <?php echo $enabled ?>>Delete Player</button>
             </form> 
             <form action="updatePlayer.php" name="updateForm">  
-                <button type="submit" class="btn btn-primary" id="submit">Update Player</button>
+                <button type="submit" class="btn btn-primary" id="submitUpdate" <?php echo $enabled ?>>Update Player</button>
             </form>
             <a class="btn btn-primary" href="playerDisplay.php">Back to Browse</a>
         </div>
