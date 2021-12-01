@@ -26,9 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(":name", $name);
         $stmt->execute();
         $res = $stmt->fetchAll();
-        $exists = sizeof($res);
-        $stmt->closeCursor();
-        if($exists){
+        if($res){
             $query = "DELETE FROM Coaches WHERE name=:name";
             $statement = $db->prepare($query);
             $statement->bindValue(':name', $name);
