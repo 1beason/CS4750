@@ -19,7 +19,7 @@
     
 </head>
 <?php
-    if(isset($_SESSION['user'])) {
+    //if(isset($_SESSION['user'])) {
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newName = $_POST['name'];
@@ -43,9 +43,12 @@
             $statement->closeCursor();
         }
         
-    } else {
+    //} 
+    /*
+    else {
         echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>You are not logged in.</b></h4></span></div>";
     }
+    **/
 ?>
 <div class="container" style="text-align: center;">
     <!-- a form -->
@@ -75,13 +78,13 @@
         <div class="form-row">
             <div class = "col">
                 <label for="salary">New Salary</label>
-                <input type="text" class="form-control" id="salary" name="salary" placeholder="Enter new number" required>
+                <input type="text" class="form-control" id="salary" name="salary" placeholder="Enter new salary" required>
             </div>
         </div>
         <div class="form-row">
             <div class = "col">
                 <label for="team_city">New Team City</label>
-                <input type="text" class="form-control" id="team_city" name="team_city" placeholder="Enter new number" required>
+                <input type="text" class="form-control" id="team_city" name="team_city" placeholder="Enter new city" required>
             </div>
         </div>
     </div>
