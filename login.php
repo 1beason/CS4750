@@ -1,6 +1,5 @@
 <?php
 require("dbutil.php");
-include('nav.php');
 
 if (isset($_POST['submit'])) {
 
@@ -28,6 +27,7 @@ if (isset($_POST['submit'])) {
     $stmt->closeCursor();
 
 }
+include('nav.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

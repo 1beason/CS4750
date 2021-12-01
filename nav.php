@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ob_start();
 $logged_in = false;
 $link = 'login.php';
 $title = 'Login';
@@ -52,7 +52,7 @@ if (isset($_SESSION['user'])) {
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="addPlayer.php">Add Player</a></li>
-            <li><a class="dropdown-item" href="update_players_dropdown.php">Update Player</a></li>
+            <li><a class="dropdown-item" href="updatePlayer.php">Update Player</a></li>
             <li><a class="dropdown-item" href="playerDisplay.php">Browse Players</a></li>
           </ul>
         </li>
@@ -63,7 +63,7 @@ if (isset($_SESSION['user'])) {
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="addCoach.php">Add Coach</a></li>
             <li><a class="dropdown-item" href="addAssistantCoach.php">Add Assistant Coach</a></li>
-            <li><a class="dropdown-item" href="#">Browse Coaches</a></li>
+            <li><a class="dropdown-item" href="coachDisplay.php">Browse Coaches</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -76,7 +76,7 @@ if (isset($_SESSION['user'])) {
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo $link?>"><?php echo $title ?></a>
+          <a class="nav-link active" aria-current="page" href="<?php echo $link?>"><?php echo $title; ob_end_flush();?></a>
         </li>
       </ul>
     </div>
