@@ -33,7 +33,7 @@
         $statement->bindValue(':name', $name);
         $statement->execute();
         $player = $statement->fetchAll();
-        $enabled = (empty($player) or count($player_info)) ? 'Disabled' : '';
+        $enabled = (empty($player) and count($player_info) > 1) ? 'Disabled' : '';
         
 }
 ?>

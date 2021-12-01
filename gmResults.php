@@ -33,7 +33,7 @@
         $statement->bindValue(':name', $name);
         $statement->execute();
         $gm = $statement->fetchAll();
-        $enabled = (empty($gm) or count($coach_info)) ? 'Disabled' : '';
+        $enabled = (empty($gm) and count($coach_info) > 1) ? 'Disabled' : '';
         $statement->closeCursor();
 
 
