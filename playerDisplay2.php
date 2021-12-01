@@ -28,12 +28,12 @@
         $statement->bindValue(':name', $name_like);
         $statement->execute();
         $player_info = $statement->fetchAll();
-        $query2 = "SELECT * FROM PLAYERS WHERE name = :name";
-        $statement = $db->prepare($query);
+        $query2 = "SELECT * FROM Players WHERE name = :name";
+        $statement = $db->prepare($query2);
         $statement->bindValue(':name', $name);
         $statement->execute();
         $player = $statement->fetchAll();
-        $enabled = empty($player) ? 'Disabled' : '';
+        $enabled = empty($player) or count($player_info) ? 'Disabled' : '';
         $statement->closeCursor();
 }
 ?>

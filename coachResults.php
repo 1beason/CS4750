@@ -28,6 +28,13 @@
         $statement->bindValue(':name', $name_like);
         $statement->execute();
         $coach_info = $statement->fetchAll();
+        $query2 = "SELECT * FROM Coaches WHERE name = :name";
+        $statement = $db->prepare($query2);
+        $statement->bindValue(':name', $name);
+        $statement->execute();
+        $player = $statement->fetchAll();
+        $enabled = empty($player) or count($coach_info) ? 'Disabled' : '';
+        $statement->closeCursor();
         $statement->closeCursor();
 
 
@@ -54,10 +61,10 @@
         </div>
         <div class="container" style="text-align: center;">
             <form action="deleteCoach.php" name="deleteForm" method="post">  
-                <button type="submit" class="btn btn-primary" id="submit">Delete Coach</button>
+                <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?>>Delete Coach</button>
             </form> 
             <form action="updateCoach.php" name="updateForm">  
-                <button type="submit" class="btn btn-primary" id="submit">Update Coach</button>
+                <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?>>Update Coach</button>
             </form>
             <a class="btn btn-primary" href="coachDisplay.php">Back to Browse</a>
         </div>

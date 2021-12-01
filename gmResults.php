@@ -28,7 +28,14 @@
         $statement->bindValue(':name', $name_like);
         $statement->execute();
         $coach_info = $statement->fetchAll();
+        $query2 = "SELECT * FROM General_Managers WHERE name = :name";
+        $statement = $db->prepare($query2);
+        $statement->bindValue(':name', $name);
+        $statement->execute();
+        $gm = $statement->fetchAll();
+        $enabled = empty($gm) or count($coach_info)? 'Disabled' : '';
         $statement->closeCursor();
+
 
 
 }
@@ -56,10 +63,10 @@
         </div>
         <div class="container" style="text-align: center;">
             <form action="deleteGM.php" name="deleteForm" method="post">  
-                <button type="submit" class="btn btn-primary" id="submit">Delete GM</button>
+                <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?>>Delete GM</button>
             </form> 
             <form action="updateGM.php" name="updateForm">  
-                <button type="submit" class="btn btn-primary" id="submit">Update GM</button>
+                <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?>>Update GM</button>
             </form>
             <a class="btn btn-primary" href="gmDisplay.php">Back to Browse</a>
         </div>
