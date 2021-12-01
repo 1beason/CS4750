@@ -26,8 +26,8 @@
             $tenure = $_POST['tenure'];
             $salary = $_POST['salary'];
             $name = $_POST['gmToUpdate'];
-            $team = $POST['team'];
-            $owner = $POST['owner'];
+            $team = $_POST['team'];
+            $owner = $_POST['owner'];
 
             $query = "UPDATE General_Managers SET name=:newName, tenure=:tenure, salary=:salary, team=:team, owner=:owner
                     WHERE name=:name";

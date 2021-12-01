@@ -24,9 +24,9 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newName = $_POST['name'];
             $tenure = $_POST['tenure'];
-            $number = $_POST['number'];
+            $salary = $_POST['salary'];
             $name = $_POST['coachToUpdate'];
-            $team_city = $POST['team_city'];
+            $team_city = $_POST['team_city'];
 
             $query = "UPDATE Coaches SET name=:newName, tenure=:tenure, salary=:salary, team_city=:team_city
                     WHERE name=:name";
