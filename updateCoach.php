@@ -19,7 +19,7 @@
     
 </head>
 <?php
-    //if(isset($_SESSION['user'])) {
+    if(isset($_SESSION['user'])) {
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newName = $_POST['name'];
@@ -43,12 +43,12 @@
             $statement->closeCursor();
         }
         
-    //} 
-    /*
+    } 
+    
     else {
         echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>You are not logged in.</b></h4></span></div>";
     }
-    **/
+    
 ?>
 <div class="container" style="text-align: center;">
     <!-- a form -->

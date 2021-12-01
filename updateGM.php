@@ -19,7 +19,7 @@
     
 </head>
 <?php
-    //if(isset($_SESSION['user'])) {
+    if(isset($_SESSION['user'])) {
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newName = $_POST['name'];
@@ -46,12 +46,12 @@
             $statement->closeCursor();
         }
         
-    //} 
-    /*
+    } 
+    
     else {
         echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_user'><h4><b>You are not logged in.</b></h4></span></div>";
     }
-    */
+    
 ?>
 <div class="container" style="text-align: center;">
     <!-- a form -->
@@ -61,7 +61,7 @@
         <div class="form-row">
             <div class = "col">
                 <label for="gmToUpdate">Which GM would you like to update?</label>
-                <input type="text" class="form-control" id= "gmToUpdate" name="gmToUpdate" placeholder="Enter coach name" required>
+                <input type="text" class="form-control" id= "gmToUpdate" name="gmToUpdate" placeholder="Enter GM name" required>
             </div>
         </div>
     </div>
@@ -87,7 +87,7 @@
         <div class="form-row">
             <div class = "col">
                 <label for="team">New Team</label>
-                <input type="text" class="form-control" id="team" name="team_city" placeholder="Enter new team" required>
+                <input type="text" class="form-control" id="team" name="team" placeholder="Enter new team" required>
             </div>
         </div>
         <div class="form-row">
