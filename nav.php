@@ -61,6 +61,7 @@ if (isset($_SESSION['user'])) {
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="addCoach.php">Add Coach</a></li>
+            <li><a class="dropdown-item" href="updateCoach.php">Update Coach</a></li>
             <li><a class="dropdown-item" href="addAssistantCoach.php">Add Assistant Coach</a></li>
             <li><a class="dropdown-item" href="coachDisplay.php">Browse Coaches</a></li>
           </ul>
@@ -71,6 +72,7 @@ if (isset($_SESSION['user'])) {
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="addGeneralManager.php">Add GM</a></li>
+            <li><a class="dropdown-item" href="updateGM.php">Update GM</a></li>
             <li><a class="dropdown-item" href="gmDisplay.php">Browse GMs</a></li>
           </ul>
         </li>

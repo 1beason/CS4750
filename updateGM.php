@@ -61,7 +61,7 @@
         <div class="form-row">
             <div class = "col">
                 <label for="gmToUpdate">Which GM would you like to update?</label>
-                <input type="text" class="form-control" id= "gmToUpdate" name="gmToUpdate" placeholder="Enter coach name" required>
+                <input type="text" class="form-control" id= "gmToUpdate" name="gmToUpdate" placeholder="Enter GM name" required>
             </div>
         </div>
     </div>
