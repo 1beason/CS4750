@@ -98,5 +98,5 @@
         </div>
     </div>
     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-    <a class="btn btn-primary" href="playerDisplay.php">Back to Browse</a>            
+    <a class="btn btn-primary" href="gmDisplay.php">Back to Browse</a>            
 </div>
