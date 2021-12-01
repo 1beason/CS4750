@@ -33,7 +33,7 @@
         $statement->bindValue(':name', $name);
         $statement->execute();
         $player = $statement->fetchAll();
-        $enabled = empty($player) or count($coach_info) ? 'Disabled' : '';
+        $enabled = (empty($player) or (count($coach_info) > 1)) ? 'Disabled' : '';
         $statement->closeCursor();
         $statement->closeCursor();
 
@@ -41,6 +41,11 @@
 }
 ?>
     <body>
+    <form action="downloadPlayer.php" name="downloadForm" method="post" id="submitDelete"> 
+          <input type="hidden" name="name" value="<?php echo $name_like; ?>">
+          <input type="hidden" name="type" value="Coaches">
+                <button type="submit" class="btn btn-primary">Download CSV</button>
+      </form> 
         <div class="table-responsive">
             <table id="coachTable" class="table table-striped table-bordered" style="width:100%">
                 <tr>

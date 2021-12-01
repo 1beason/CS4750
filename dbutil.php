@@ -13,3 +13,4 @@ try {
 	$msg = $e->getMessage();
 	echo "<p> Error: $msg";
 }
+?>
