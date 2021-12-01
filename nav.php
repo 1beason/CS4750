@@ -1,6 +1,5 @@
 <?php
 session_start();
-ob_start();
 $logged_in = false;
 $link = 'login.php';
 $title = 'Login';
@@ -76,7 +75,7 @@ if (isset($_SESSION['user'])) {
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo $link?>"><?php echo $title; ob_end_flush();?></a>
+          <a class="nav-link active" aria-current="page" href="<?php echo $link?>"><?php echo $title?></a>
         </li>
       </ul>
     </div>

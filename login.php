@@ -1,6 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Brooks Eason">
 <?php
 require("dbutil.php");
-
+include('nav.php');
+ob_start();
 if (isset($_POST['submit'])) {
 
     $user = $_POST['username'];
@@ -22,22 +32,12 @@ if (isset($_POST['submit'])) {
         echo "<div class='container' style='text-align: center;'><span class='error_message' id='msg_pass'><h4><b>You entered the wrong password, please try again.</b></h4></span></div>";
     } else {
         $_SESSION['user'] = $user;
-        header("Location:home.php");
+        echo "<script>location.href='home.php'</script>";
     }
     $stmt->closeCursor();
-
+    ob_end_flush();
 }
-include('nav.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="author" content="Brooks Eason">
 <title>Login</title>
 <style>
     .error_message {  color: crimson; font-style:italic; }       
