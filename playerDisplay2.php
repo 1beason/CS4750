@@ -56,12 +56,11 @@
                     <td><?php echo $p['age']; ?></td> 
                     <td><?php echo $p['number']; ?></td>
                 </tr>
-                <?php endforeach; ?>
             </table>
         </div>
         <div class="container" style="text-align: center;">
             <form action="deletePlayer.php" name="deleteForm" method="post" id="submitDelete">  
-                <button type="submit" class="btn btn-primary" <?php echo $enabled ?>>Delete Player</button>
+                <button type="submit" class="btn btn-primary" <?php echo $enabled ?> onclick="return confirm('Are you sure you want to delete <?php echo $p['name']; endforeach; ?>?')">Delete Player</button>
             </form> 
             <form action="updatePlayer.php" name="updateForm">  
                 <button type="submit" class="btn btn-primary" id="submitUpdate" <?php echo $enabled ?>>Update Player</button>

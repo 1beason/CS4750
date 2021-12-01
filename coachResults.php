@@ -61,12 +61,11 @@
                     <td><?php echo '$'.$c['salary']; ?></td>
                     <td><?php echo $c['team_city']; ?></td>
                 </tr>
-                <?php endforeach; ?>
             </table>
         </div>
         <div class="container" style="text-align: center;">
             <form action="deleteCoach.php" name="deleteForm" method="post">  
-                <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?>>Delete Coach</button>
+                <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?> onclick="return confirm('Are you sure you want to delete <?php echo $c['name']; endforeach; ?>?')">Delete Coach</button>
             </form> 
             <form action="updateCoach.php" name="updateForm">  
                 <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?>>Update Coach</button>

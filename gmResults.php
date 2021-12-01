@@ -63,12 +63,11 @@
                     <td><?php echo $g['tenure']; ?></td>
                     <td><?php echo $g['owner_name']; ?></td>
                 </tr>
-                <?php endforeach; ?>
             </table>
         </div>
         <div class="container" style="text-align: center;">
             <form action="deleteGM.php" name="deleteForm" method="post">  
-                <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?>>Delete GM</button>
+                <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?> onclick="return confirm('Are you sure you want to delete <?php echo $g['name']; endforeach; ?>?')">Delete GM</button>
             </form> 
             <form action="updateGM.php" name="updateForm">  
                 <button type="submit" class="btn btn-primary" id="submit" <?php echo $enabled ?>>Update GM</button>
