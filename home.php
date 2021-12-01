@@ -36,10 +36,10 @@
           <a class="btn btn-lg" href="playerDisplay.php" role="button">Browse Players</a>
 </span>
 <span id=coaches>
-          <a class="btn btn-lg" href="#" role="button">Browse Coaches</a>
+          <a class="btn btn-lg" href="coachDisplay.php" role="button">Browse Coaches</a>
 </span>
 <span id=GMs>
-          <a class="btn btn-lg" href="#" role="button">Browse GMs</a>
+          <a class="btn btn-lg" href="gmDisplay.php" role="button">Browse GMs</a>
 </span>
         </center>
       </div>
