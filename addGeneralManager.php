@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form-row">
             <div class = "col">
-                <label for="first_name">Team of Coach</label>
+                <label for="first_name">Team of Manager</label>
                 <input type="text" class="form-control" id="team" name="team" placeholder="Enter manager's city" required>
             </div>
         </div>
