@@ -38,7 +38,7 @@
 
 ?>
 <body>
-        <h4><?php echo $user; echo "'s Players"; ?></h4>   
+        <h4 style="text-align: center;"><?php echo $user; echo "'s Players"; ?></h4>   
         <div class="table-responsive">
             <table id="playerTable" class="table table-striped table-bordered" style="width:100%">
                 <tr>
