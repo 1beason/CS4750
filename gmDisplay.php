@@ -20,7 +20,7 @@
 </head>
 <div class="container" style="text-align: center;">
     <!-- a form -->
-    <form action="coachResults.php" name="displayForm" method="post">
+    <form action="gmResults.php" name="displayForm" method="post">
 
     <h4>Find a GM</h4>
     <div class="form-group">

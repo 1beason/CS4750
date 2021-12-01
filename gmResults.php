@@ -49,7 +49,7 @@
                     <td><?php echo $g['team']; ?></td> 
                     <td><?php echo '$'.$g['salary']; ?></td>
                     <td><?php echo $g['tenure']; ?></td>
-                    <td><?php echo $g['owner']; ?></td>
+                    <td><?php echo $g['owner_name']; ?></td>
                 </tr>
                 <?php endforeach; ?>
             </table>

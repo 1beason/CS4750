@@ -72,7 +72,7 @@ if (isset($_SESSION['user'])) {
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="addGeneralManager.php">Add GM</a></li>
-            <li><a class="dropdown-item" href="#">Browse GMs</a></li>
+            <li><a class="dropdown-item" href="gmDisplay.php">Browse GMs</a></li>
           </ul>
         </li>
         <li class="nav-item">
