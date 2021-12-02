@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           Sign Up
       </h3>
       <!-- registration form -->
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="RegisterForm" method="post" onsubmit="return validate()">
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="RegisterForm" id="RegisterForm" method="post" onsubmit="return validate()">
 
           <div class="form-group">
             <label for="exampleInputUsername">Username</label>
@@ -77,24 +77,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" class="form-control" name="pass2" id="pass2" placeholder="Password" >
                     </div>
                     <div class="form-group">
-                        <label for="role">Role</label>
-                        <input type="role" class="form-control" name="role" id="role" placeholder="Role" >
+                        <label for="role">Select a Role:</label>
+                          <select name="role" id="role" form="RegisterForm">
+                            <option value="Player">Player</option>
+                            <option value="Coach">Coach</option>
+                            <option value="General Manager">General Manager</option>
+                            <option value="Owner">Owner</option>
+                          </select>
                     </div>
-                    <!--
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="coach">
-                            <label class="form-check-label" for="coach">
-                                Coach
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="player">
-                            <label class="form-check-label" for="player">
-                                Player
-                            </label>
-                        </div>
-                    </div> -->
+           
                     
                     <button type="submit" class="btn btn-secondary">Submit</button>
                     <div>
