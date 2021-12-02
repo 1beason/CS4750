@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" class="form-control" name="pass2" id="pass2" placeholder="Password" >
                     </div>
                     <div class="form-group">
-                        <label for="role">Select a Role.</label>
+                        <label for="role">Select a Role:</label>
                           <select name="role" id="role" form="RegisterForm">
                             <option value="Player">Player</option>
                             <option value="Coach">Coach</option>
